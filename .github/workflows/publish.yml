@@ -38,4 +38,4 @@ jobs:
           ls -la assets
           test -f assets/latest.json
           gh release create "$TAG" assets/* --repo "$REPO" --title "$TITLE" --notes "" --target main --latest
-          gh release delete "$DRAFT_TAG" --repo "$REPO" --yes --cleanup-tag
+          gh release delete "$DRAFT_TAG" --repo "$REPO" --yes   # 초안에는 태그가 없으니 태그 정리는 하지 않는다
