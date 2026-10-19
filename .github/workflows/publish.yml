@@ -1,0 +1,41 @@
+# 비공개 초안 릴리스(staging-*)에 올린 파일을 봇(github-actions) 이름의 정식 릴리스로 옮긴다.
+# 사용: gh workflow run publish.yml -R officetool-app/officetools-releases -f draft_tag=staging-1.2.0 -f tag=v1.2.0 -f title="Office Tool 1.2.0"
+name: publish
+on:
+  workflow_dispatch:
+    inputs:
+      draft_tag:
+        description: "초안 릴리스 태그 (staging-...)"
+        required: true
+      tag:
+        description: "정식 릴리스 태그 (v...)"
+        required: true
+      title:
+        description: "릴리스 제목"
+        required: true
+permissions:
+  contents: write
+concurrency:
+  group: publish
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 초안 파일을 봇 이름의 정식 릴리스로 옮기기
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          DRAFT_TAG: ${{ inputs.draft_tag }}
+          TAG: ${{ inputs.tag }}
+          TITLE: ${{ inputs.title }}
+        run: |
+          set -euo pipefail
+          case "$DRAFT_TAG" in staging-*) ;; *) echo "draft_tag must start with staging-"; exit 1;; esac
+          case "$TAG" in v[0-9]*) ;; *) echo "tag must look like v1.2.3"; exit 1;; esac
+          mkdir assets
+          gh release download "$DRAFT_TAG" --repo "$REPO" --dir assets
+          ls -la assets
+          test -f assets/latest.json
+          gh release create "$TAG" assets/* --repo "$REPO" --title "$TITLE" --notes "" --target main --latest
+          gh release delete "$DRAFT_TAG" --repo "$REPO" --yes --cleanup-tag

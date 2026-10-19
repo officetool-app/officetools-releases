@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Office Tool 설치 안내</title>
+<style>
+  :root { --ink: #1b1b1b; --muted: #5a5a5a; --line: #e3e3e3; --red: #d8321c; --bg: #ffffff; --soft: #f6f6f6; --note: #fff6d5; --note-ink: #5a4a00; --ok: #e8f5e9; --ok-ink: #1b5e20; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Malgun Gothic", "맑은 고딕", "Segoe UI", sans-serif; line-height: 1.65; font-size: 16px; }
+  header { background: #111; color: #fff; padding: 36px 20px; }
+  header .wrap { max-width: 920px; margin: 0 auto; }
+  header h1 { margin: 0 0 8px; font-size: 30px; letter-spacing: -0.5px; }
+  header h1 span { color: var(--red); }
+  header p { margin: 0; color: #cfcfcf; }
+  main { max-width: 920px; margin: 0 auto; padding: 24px 20px 60px; }
+  .toc { background: var(--soft); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin: 20px 0 32px; }
+  .toc h2 { margin: 0 0 8px; font-size: 16px; color: var(--muted); }
+  .toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 32px; }
+  .toc li { margin: 2px 0; }
+  .toc a { color: var(--ink); text-decoration: none; }
+  .toc a:hover { color: var(--red); }
+  section.step { border-top: 1px solid var(--line); padding: 28px 0 8px; }
+  .step h2 { display: flex; align-items: center; gap: 14px; margin: 0 0 12px; font-size: 22px; }
+  .num { flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--red); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; }
+  .step p { margin: 8px 0; }
+  .step ul { margin: 6px 0 10px; padding-left: 22px; }
+  figure { margin: 16px 0 10px; }
+  figure img { display: block; max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+  figcaption { color: var(--muted); font-size: 14px; margin-top: 8px; }
+  .note { background: var(--note); color: var(--note-ink); border-left: 5px solid #e2b800; border-radius: 6px; padding: 12px 16px; margin: 12px 0; }
+  .ok { background: var(--ok); color: var(--ok-ink); border-left: 5px solid #43a047; border-radius: 6px; padding: 12px 16px; margin: 12px 0; }
+  .btn { display: inline-block; border: 1px solid #999; border-radius: 4px; padding: 0 8px; background: #fafafa; font-weight: 600; font-size: 14px; }
+  kbd { border: 1px solid #bbb; border-bottom-width: 2px; border-radius: 4px; padding: 0 6px; background: #f4f4f4; font-family: inherit; font-size: 14px; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 15px; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: var(--soft); }
+  footer { color: var(--muted); font-size: 13px; text-align: center; padding: 20px; border-top: 1px solid var(--line); }
+  @media (max-width: 640px) { .toc ol { columns: 1; } header h1 { font-size: 24px; } .step h2 { font-size: 19px; } }
+  @media print { header { background: #fff; color: #000; } figure img { box-shadow: none; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Office Tool <span>설치 안내</span></h1>
+    <p>엑셀·워드·한글·PDF·텍스트·그림 파일을 창 하나에서 열고 편집하는 프로그램입니다. 처음 설치하는 분을 위해 화면과 함께 순서대로 설명합니다. 걸리는 시간은 약 2분입니다.</p>
+  </div>
+</header>
+
+<main>
+  <div class="toc">
+    <h2>차례</h2>
+    <ol>
+      <li><a href="#s0">설치 전에 확인할 것</a></li>
+      <li><a href="#s1">설치 파일 내려받기</a></li>
+      <li><a href="#s2">설치 파일 실행하기 (보안 경고)</a></li>
+      <li><a href="#s3">설치 위치 확인</a></li>
+      <li><a href="#s4">추가 작업 선택</a></li>
+      <li><a href="#s5">설치 시작</a></li>
+      <li><a href="#s6">설치 완료와 첫 실행</a></li>
+      <li><a href="#s7">설치 뒤 알아 둘 것</a></li>
+      <li><a href="#s8">자주 묻는 질문</a></li>
+      <li><a href="#s9">제거(삭제) 방법</a></li>
+    </ol>
+  </div>
+
+  <section class="step" id="s0">
+    <h2><span class="num">0</span>설치 전에 확인할 것</h2>
+    <table>
+      <tr><th style="width:160px">운영체제</th><td>Windows 10 또는 Windows 11 (64비트)</td></tr>
+      <tr><th>필요한 공간</th><td>약 160 MB</td></tr>
+      <tr><th>관리자 권한</th><td>필요 없습니다. 내 계정 폴더 안에 설치되므로 관리자 비밀번호를 묻지 않습니다.</td></tr>
+      <tr><th>다른 프로그램</th><td>엑셀·워드·한컴오피스가 없어도 됩니다. 있어도 서로 영향이 없습니다.</td></tr>
+    </table>
+  </section>
+
+  <section class="step" id="s1">
+    <h2><span class="num">1</span>설치 파일 내려받기</h2>
+    <p>아래 주소를 인터넷 브라우저(크롬, 엣지 등)의 주소창에 넣어 엽니다.</p>
+    <p><a href="https://github.com/officetool-app/officetools-releases/releases/latest">https://github.com/officetool-app/officetools-releases/releases/latest</a></p>
+    <p>페이지 아래쪽 <b>Assets</b> 목록에서 <b>OfficeTool-<i>버전</i>-Setup.exe</b> 를 클릭하면 내려받기가 시작됩니다. 다른 항목(latest.json, Source code)은 누르지 않아도 됩니다.</p>
+    <figure>
+      <img src="images/01_github_release.png" alt="GitHub 릴리스 페이지의 Assets 목록에서 Setup.exe 를 고르는 화면">
+      <figcaption>Assets 안의 <b>OfficeTool-1.1.14-Setup.exe</b> 를 누릅니다. 버전 숫자는 그때그때 다를 수 있습니다.</figcaption>
+    </figure>
+    <div class="note">
+      <b>브라우저가 "이 파일은 일반적으로 다운로드되지 않습니다"라고 할 때</b><br>
+      회사에서 직접 만든 프로그램이라 아직 인증서 서명이 없어 브라우저가 조심하라고 알리는 것입니다. 크롬은 다운로드 표시 옆의 <span class="btn">⋮</span> 또는 <span class="btn">∧</span> 를 눌러 <b>보관</b>(또는 <b>계속</b>)을 고르고, 엣지는 <span class="btn">…</span> → <b>유지</b> → <b>그래도 유지</b>를 누르면 됩니다. 받은 파일은 보통 <b>다운로드</b> 폴더에 들어갑니다.
+    </div>
+  </section>
+
+  <section class="step" id="s2">
+    <h2><span class="num">2</span>설치 파일 실행하기 (보안 경고)</h2>
+    <p>다운로드 폴더에서 <b>OfficeTool-1.1.14-Setup.exe</b> 를 두 번 클릭합니다. 처음 실행할 때 아래와 같은 창이 뜨면 <span class="btn">실행(R)</span> 을 누릅니다.</p>
+    <figure>
+      <img src="images/02_security_warning.png" alt="파일 열기 - 보안 경고 창">
+      <figcaption>"게시자를 확인하지 못했습니다" 창. <b>실행(R)</b> 을 누르면 설치가 시작됩니다. 파일 경로는 가려 두었습니다.</figcaption>
+    </figure>
+    <div class="note">
+      <b>"Windows의 PC 보호" 라는 파란 창이 뜰 때</b><br>
+      창 안의 <b>추가 정보</b> 글자를 누르면 <span class="btn">실행</span> 단추가 나타납니다. 그 단추를 누르면 됩니다. 어느 창이든 인증서 서명이 없는 프로그램이면 뜨는 안내이며, 위 GitHub 주소에서 받은 설치 파일이면 안전합니다.
+    </div>
+  </section>
+
+  <section class="step" id="s3">
+    <h2><span class="num">3</span>설치 위치 확인</h2>
+    <p>설치 마법사의 첫 화면입니다. 설치 폴더가 미리 채워져 있으니 그대로 두고 <span class="btn">다음(N)</span> 을 누릅니다.</p>
+    <figure>
+      <img src="images/03_wizard_page1.png" alt="대상 위치 선택 화면">
+      <figcaption>기본 위치는 내 계정 폴더 안입니다(화면에서는 가려 두었습니다). 특별한 이유가 없으면 바꾸지 않습니다.</figcaption>
+    </figure>
+  </section>
+
+  <section class="step" id="s4">
+    <h2><span class="num">4</span>추가 작업 선택</h2>
+    <p>두 항목이 기본으로 켜져 있습니다. 그대로 두고 <span class="btn">다음(N)</span> 을 누르는 것을 권합니다.</p>
+    <ul>
+      <li><b>바탕 화면에 바로가기 만들기</b>: 바탕 화면에 Office Tool 아이콘이 생깁니다.</li>
+      <li><b>파일 연결</b>: 엑셀·워드·한글·PDF·그림 파일을 두 번 클릭하면 Office Tool 로 열립니다. 엑셀이나 워드로 계속 열고 싶은 파일 종류가 있으면 이 항목을 끄거나, 설치 뒤 파일 우클릭 → "연결 프로그램"에서 바꿀 수 있습니다.</li>
+    </ul>
+    <figure>
+      <img src="images/04_wizard_page2.png" alt="추가 작업 선택 화면">
+      <figcaption>두 항목 모두 체크된 상태가 기본입니다.</figcaption>
+    </figure>
+  </section>
+
+  <section class="step" id="s5">
+    <h2><span class="num">5</span>설치 시작</h2>
+    <p>지금까지 고른 내용을 보여 줍니다. <span class="btn">설치(I)</span> 를 누르면 설치가 진행되고, 보통 몇 초 안에 끝납니다.</p>
+    <figure>
+      <img src="images/05_wizard_page3.png" alt="설치 준비 완료 화면">
+      <figcaption>설치 위치와 추가 작업을 다시 보여 주는 화면. <b>설치(I)</b> 를 누릅니다.</figcaption>
+    </figure>
+  </section>
+
+  <section class="step" id="s6">
+    <h2><span class="num">6</span>설치 완료와 첫 실행</h2>
+    <p>"설치 마법사 완료" 화면이 나오면 끝입니다. <b>Office Tool 실행</b>이 체크된 채로 <span class="btn">마침(F)</span> 을 누르면 프로그램이 바로 켜집니다.</p>
+    <figure>
+      <img src="images/07_wizard_finish.png" alt="설치 마법사 완료 화면">
+      <figcaption><b>마침(F)</b> 을 누르면 설치 창이 닫히고 Office Tool 이 켜집니다.</figcaption>
+    </figure>
+    <p>처음 켜면 아래와 같은 시작 화면이 나옵니다. <b>새 파일 만들기</b> 또는 <b>파일 열기</b>를 누르거나, 파일을 창 안으로 끌어다 놓으면 바로 열립니다.</p>
+    <figure>
+      <img src="images/08_first_screen.png" alt="Office Tool 첫 실행 화면">
+      <figcaption>시작 화면. 아래쪽에는 최근에 연 파일이 카드로 쌓입니다.</figcaption>
+    </figure>
+    <div class="ok">설치가 끝났습니다. 다음에는 바탕 화면 아이콘이나 시작 메뉴의 <b>Office Tool</b> 로 켜면 됩니다.</div>
+  </section>
+
+  <section class="step" id="s7">
+    <h2><span class="num">7</span>설치 뒤 알아 둘 것</h2>
+    <ul>
+      <li><b>자동 업데이트</b>: 새 버전이 나오면 켤 때 "새 버전이 있습니다" 창이 뜹니다. <b>지금 업데이트</b>를 누르면 알아서 내려받아 설치하고 다시 켜집니다. 바로 할 수 없으면 <b>나중에</b>를 누르세요. 도움말 → <b>업데이트 확인</b>으로 직접 확인할 수도 있습니다.</li>
+      <li><b>트레이에 켜 두기</b>: 창을 닫아도 프로그램은 작업 표시줄 오른쪽 트레이에 남아 있어 다음 파일이 빨리 열립니다. 완전히 끝내려면 트레이의 Office Tool 아이콘을 우클릭 → <b>종료</b>.</li>
+      <li><b>사용 설명서</b>: 프로그램 안에서 <kbd>F1</kbd> 또는 도움말 → 사용 설명서. 한국어/English 를 고를 수 있습니다.</li>
+      <li><b>파일은 표준 형식</b>: Office Tool 로 저장한 xlsx·docx·hwpx·pdf 파일은 이 프로그램이 없는 PC 에서도 엑셀·워드·한컴오피스로 그대로 열립니다.</li>
+    </ul>
+  </section>
+
+  <section class="step" id="s8">
+    <h2><span class="num">8</span>자주 묻는 질문</h2>
+    <p><b>Q. 설치 파일을 두 번 클릭해도 아무 일이 없어요.</b><br>브라우저가 파일을 차단한 경우입니다. 1단계의 안내대로 다운로드 목록에서 <b>보관/유지</b>를 누른 뒤 다시 실행하세요.</p>
+    <p><b>Q. 관리자 비밀번호를 물어보나요?</b><br>아니요. 내 계정 폴더에 설치되므로 묻지 않습니다. 만약 묻는다면 다른 프로그램의 창일 수 있으니 취소하고 다시 확인하세요.</p>
+    <p><b>Q. 이미 설치되어 있는데 또 설치해도 되나요?</b><br>됩니다. 같은 위치에 덮어씌워지고 설정과 최근 문서는 그대로 남습니다. 단, 켜져 있는 Office Tool 은 먼저 끝내 주세요(트레이 아이콘 우클릭 → 종료).</p>
+    <p><b>Q. 엑셀 파일이 Office Tool 로 열리는 게 싫어요.</b><br>파일을 우클릭 → <b>연결 프로그램</b> → <b>다른 앱 선택</b>에서 Excel 을 고르고 "항상"을 체크하면 됩니다. Office Tool 은 그대로 두고 쓸 수 있습니다.</p>
+    <p><b>Q. 설치 파일의 버전 숫자가 이 안내와 달라요.</b><br>괜찮습니다. 가장 최근 버전을 받으면 되고, 설치 순서는 같습니다.</p>
+  </section>
+
+  <section class="step" id="s9">
+    <h2><span class="num">9</span>제거(삭제) 방법</h2>
+    <p>Windows <b>설정 → 앱 → 설치된 앱</b>에서 <b>Office Tool</b> 을 찾아 <b>제거</b>를 누릅니다. 아래 확인 창에서 <span class="btn">예(Y)</span> 를 누르면 프로그램 파일이 지워집니다. 내 문서 파일은 지워지지 않습니다.</p>
+    <figure>
+      <img src="images/90_uninstall_confirm.png" alt="Office Tool 제거 확인 창">
+      <figcaption>제거 확인 창. 켜져 있는 Office Tool 이 있으면 먼저 끝낸 뒤 제거하세요.</figcaption>
+    </figure>
+  </section>
+</main>
+
+<footer>Office Tool 설치 안내 · 이 문서는 Office Tool 1.1.14 설치 화면을 기준으로 만들었습니다.</footer>
+</body>
+</html>
