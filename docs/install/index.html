@@ -30,6 +30,9 @@
   figcaption { color: var(--muted); font-size: 14px; margin-top: 8px; }
   .note { background: var(--note); color: var(--note-ink); border-left: 5px solid #e2b800; border-radius: 6px; padding: 12px 16px; margin: 12px 0; }
   .ok { background: var(--ok); color: var(--ok-ink); border-left: 5px solid #43a047; border-radius: 6px; padding: 12px 16px; margin: 12px 0; }
+  .download { display: inline-block; background: var(--red); color: #fff; text-decoration: none; font-weight: 700; font-size: 18px; padding: 14px 28px; border-radius: 8px; margin: 8px 0 4px; }
+  .download:hover, .download:focus-visible { background: #b52713; color: #fff; }
+  .download small { display: block; font-weight: 400; font-size: 13px; opacity: .85; margin-top: 2px; }
   .btn { display: inline-block; border: 1px solid #999; border-radius: 4px; padding: 0 8px; background: #fafafa; font-weight: 600; font-size: 14px; }
   kbd { border: 1px solid #bbb; border-bottom-width: 2px; border-radius: 4px; padding: 0 6px; background: #f4f4f4; font-family: inherit; font-size: 14px; }
   table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 15px; }
@@ -77,13 +80,9 @@
 
   <section class="step" id="s1">
     <h2><span class="num">1</span>설치 파일 내려받기</h2>
-    <p>아래 주소를 인터넷 브라우저(크롬, 엣지 등)의 주소창에 넣어 엽니다.</p>
-    <p><a href="https://github.com/officetool-app/officetools-releases/releases/latest">https://github.com/officetool-app/officetools-releases/releases/latest</a></p>
-    <p>페이지 아래쪽 <b>Assets</b> 목록에서 <b>OfficeTool-<i>버전</i>-Setup.exe</b> 를 클릭하면 내려받기가 시작됩니다. 다른 항목(latest.json, Source code)은 누르지 않아도 됩니다.</p>
-    <figure>
-      <img src="images/01_github_release.png" alt="GitHub 릴리스 페이지의 Assets 목록에서 Setup.exe 를 고르는 화면">
-      <figcaption>Assets 안의 <b>OfficeTool-1.1.17-Setup.exe</b> 를 누릅니다. 버전 숫자는 그때그때 다를 수 있습니다.</figcaption>
-    </figure>
+    <p>아래 단추를 누르면 <b>항상 최신 버전</b>의 설치 파일(<b>OfficeTool-Setup.exe</b>)이 바로 내려받아집니다.</p>
+    <p><a class="download" href="https://github.com/officetool-app/officetools-releases/releases/latest/download/OfficeTool-Setup.exe">최신 버전 내려받기<small>OfficeTool-Setup.exe · Windows 10·11 (64비트) · 약 50 MB</small></a></p>
+    <p>단추가 눌리지 않으면 이 주소를 브라우저 주소창에 넣으세요:<br><a href="https://github.com/officetool-app/officetools-releases/releases/latest/download/OfficeTool-Setup.exe">https://github.com/officetool-app/officetools-releases/releases/latest/download/OfficeTool-Setup.exe</a></p>
     <div class="note">
       <b>브라우저가 "이 파일은 일반적으로 다운로드되지 않습니다"라고 할 때</b><br>
       회사에서 직접 만든 프로그램이라 아직 인증서 서명이 없어 브라우저가 조심하라고 알리는 것입니다. 크롬은 다운로드 표시 옆의 <span class="btn">⋮</span> 또는 <span class="btn">∧</span> 를 눌러 <b>보관</b>(또는 <b>계속</b>)을 고르고, 엣지는 <span class="btn">…</span> → <b>유지</b> → <b>그래도 유지</b>를 누르면 됩니다. 받은 파일은 보통 <b>다운로드</b> 폴더에 들어갑니다.
@@ -92,14 +91,14 @@
 
   <section class="step" id="s2">
     <h2><span class="num">2</span>설치 파일 실행하기 (보안 경고)</h2>
-    <p>다운로드 폴더에서 <b>OfficeTool-1.1.14-Setup.exe</b> 를 두 번 클릭합니다. 처음 실행할 때 아래와 같은 창이 뜨면 <span class="btn">실행(R)</span> 을 누릅니다.</p>
+    <p>다운로드 폴더에서 <b>OfficeTool-Setup.exe</b> 를 두 번 클릭합니다. 처음 실행할 때 아래와 같은 창이 뜨면 <span class="btn">실행(R)</span> 을 누릅니다.</p>
     <figure>
       <img src="images/02_security_warning.png" alt="파일 열기 - 보안 경고 창">
       <figcaption>"게시자를 확인하지 못했습니다" 창. <b>실행(R)</b> 을 누르면 설치가 시작됩니다. 파일 경로는 가려 두었습니다.</figcaption>
     </figure>
     <div class="note">
       <b>"Windows의 PC 보호" 라는 파란 창이 뜰 때</b><br>
-      창 안의 <b>추가 정보</b> 글자를 누르면 <span class="btn">실행</span> 단추가 나타납니다. 그 단추를 누르면 됩니다. 어느 창이든 인증서 서명이 없는 프로그램이면 뜨는 안내이며, 위 GitHub 주소에서 받은 설치 파일이면 안전합니다.
+      창 안의 <b>추가 정보</b> 글자를 누르면 <span class="btn">실행</span> 단추가 나타납니다. 그 단추를 누르면 됩니다. 어느 창이든 인증서 서명이 없는 프로그램이면 뜨는 안내이며, 이 안내의 내려받기 단추로 받은 설치 파일이면 안전합니다.
     </div>
   </section>
 

@@ -1,0 +1,32 @@
+# 이미 올린 릴리스에 버전 없는 이름의 설치 파일(OfficeTool-Setup.exe)을 붙인다.
+# 사용: gh workflow run alias.yml -R officetool-app/officetools-releases -f tag=v1.1.21
+name: alias
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "릴리스 태그 (v...)"
+        required: true
+permissions:
+  contents: write
+concurrency:
+  group: publish
+  cancel-in-progress: false
+jobs:
+  alias:
+    runs-on: ubuntu-latest
+    steps:
+      - name: OfficeTool-Setup.exe 사본 붙이기
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          case "$TAG" in v[0-9]*) ;; *) echo "tag must look like v1.2.3"; exit 1;; esac
+          mkdir assets
+          gh release download "$TAG" --repo "$REPO" --dir assets --pattern 'OfficeTool-*-Setup.exe'
+          setups=(assets/OfficeTool-*-Setup.exe)
+          test "${#setups[@]}" -eq 1
+          cp "${setups[0]}" OfficeTool-Setup.exe
+          gh release upload "$TAG" OfficeTool-Setup.exe --repo "$REPO" --clobber
